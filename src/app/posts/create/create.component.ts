@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
+import { PostService } from "../post.service";
 
 @Component({
   selector: "app-create",
@@ -8,7 +9,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class CreateComponent implements OnInit {
   form: FormGroup;
-  constructor() {}
+  constructor(private postService: PostService) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -17,7 +18,7 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    console.log("submit");
+  onSubmit(title: string, content: string) {
+    this.postService.newPost(this.form.value.title, this.form.value.content);
   }
 }
