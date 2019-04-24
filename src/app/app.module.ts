@@ -8,6 +8,7 @@ import { HeaderComponent } from "./header/header.component";
 
 import { AngularMaterialModule } from "./angular-material.module";
 import { PostModule } from "./posts/post.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -15,6 +16,7 @@ import { PostModule } from "./posts/post.module";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularMaterialModule,
     PostModule
   ],
