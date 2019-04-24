@@ -1,3 +1,17 @@
-<p>
-  create works!
-</p>
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="title" placeholder="Title" />
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <textarea
+        matInput
+        formControlName="content"
+        placeholder="Content"
+      ></textarea>
+    </mat-form-field>
+    <br />
+    <button mat-button type="submit">Save</button>
+  </form>
+</mat-card>
