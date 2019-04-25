@@ -14,11 +14,18 @@ export class ViewComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts();
     this.postSubscription = this.postService
       .getPostsUpdated()
       .subscribe((responseData: Post[]) => {
         this.posts = responseData;
       });
+  }
+
+  onDelete(id: string) {
+    //this.postService.deletePost(id)
+    this.postService.deletePost(id).subscribe(responseData => {
+      this.postService.getPosts();
+    });
   }
 }
