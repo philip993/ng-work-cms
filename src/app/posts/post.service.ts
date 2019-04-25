@@ -48,4 +48,23 @@ export class PostService {
       */
     return this.http.delete("http://localhost:3000/posts/" + id);
   }
+
+  getOnePost(id) {
+    return this.http.get<{ id: string; title: string; content: string }>(
+      "http://localhost:3000/posts/" + id
+    );
+  }
+
+  editPost(id: string, title: string, content: string) {
+    const post = {
+      _id: id,
+      title: title,
+      content: content
+    };
+    this.http
+      .put("http://localhost:3000/posts/" + id, post)
+      .subscribe(responseData => {
+        this.router.navigateByUrl("/view");
+      });
+  }
 }

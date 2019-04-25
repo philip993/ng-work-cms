@@ -1,6 +1,6 @@
 <mat-card *ngFor="let post of posts">
   <mat-card-header>
-    <a mat-button>EDIT</a>
+    <a mat-button [routerLink]="['/edit', post._id]">EDIT</a>
     <button mat-button (click)="onDelete(post._id)">DELETE</button>
   </mat-card-header>
   <mat-card-title>
