@@ -50,13 +50,14 @@ exports.deletePost = (req, res) => {
 
 exports.updatePost = (req, res) => {
   const post = new Post({
+    _id: req.body._id,
     title: req.body.title,
     content: req.body.content
   });
   Post.findOneAndUpdate({ _id: req.params.id }, post)
-    .then(post => {
+    .then(updPost => {
       res.status(200).json({
-        updatedPost: post
+        updatedPost: updPost
       });
     })
     .catch(err => {
