@@ -9,6 +9,7 @@ import { HeaderComponent } from "./header/header.component";
 import { AngularMaterialModule } from "./angular-material.module";
 import { PostModule } from "./posts/post.module";
 import { HttpClientModule } from "@angular/common/http";
+import { UserModule } from "./users/user.module";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -18,7 +19,8 @@ import { HttpClientModule } from "@angular/common/http";
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    PostModule
+    PostModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
